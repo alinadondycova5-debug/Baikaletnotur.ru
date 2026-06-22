@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Сердце Байкала • Тур по Бурятии</title>
+  <!-- Подключение стилей и иконок -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #1e2b3c;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* плавные переходы и эстетика */
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* герой-секция */
+    .hero {
+      background: linear-gradient(135deg, #0b2b3b 0%, #1a4b5e 40%, #2e6b7a 100%);
+      color: white;
+      padding: 2rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 25px 45px rgba(0,20,30,0.25);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,215,150,0.25) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(180,220,255,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1 1 500px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .hero .subtitle {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: #e0f0f5;
+      font-style: italic;
+      border-left: 4px solid #d4a373;
+      padding-left: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,240,0.15);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(255,255,200,0.3);
+      color: #ffefdb;
+    }
+
+    .hero-card {
+      background: rgba(255, 248, 240, 0.9);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      border-radius: 2.5rem;
+      color: #0b2b3b;
+      flex: 0 0 300px;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,220,0.5);
+    }
+
+    .hero-card h3 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: #1e4b5e;
+    }
+
+    .price {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0f3b4b;
+    }
+
+    .price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #5e6b73;
+    }
+
+    .btn {
+      background: #d4a373;
+      color: #0b2b3b;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      transition: 0.3s;
+      border: none;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 20px rgba(180, 120, 50, 0.3);
+    }
+
+    .btn:hover {
+      background: #c28b4b;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 30px rgba(180, 120, 50, 0.45);
+    }
+
+    /* Секции */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #163a46;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: #d4a373;
+      margin: 0.8rem auto 0;
+      border-radius: 4px;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .info-card {
+      background: white;
+      padding: 2rem 1.8rem;
+      border-radius: 2rem;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+      border: 1px solid #eef3f6;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(20, 70, 80, 0.12);
+    }
+
+    .info-card i {
+      font-size: 2.5rem;
+      color: #2e6b7a;
+      margin-bottom: 1rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* дневник путешественника */
+    .diary-preview {
+      background: #fef7e9;
+      border-radius: 2.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      border: 2px dashed #c9a87c;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20 20 L30 15 L40 20 L35 30 L25 30 Z" fill="%234d4030"/></svg>');
+    }
+
+    .diary-text {
+      flex: 2;
+    }
+
+    .timeline {
+      margin: 2rem 0;
+    }
+
+    .day-block {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      border-left: 8px solid #2e6b7a;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .day-header span {
+      background: #1e4b5e;
+      color: white;
+      padding: 0.4rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .day-header h3 {
+      font-size: 2rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .feature-list li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .feature-list i {
+      color: #d4a373;
+      width: 20px;
+    }
+
+    .quote {
+      font-style: italic;
+      background: #eaf2f5;
+      padding: 1.5rem 2rem;
+      border-radius: 1.5rem;
+      margin: 1.8rem 0;
+      color: #1d4552;
+      font-weight: 400;
+    }
+
+    footer {
+      background: #0b2b3b;
+      color: #ccdde4;
+      text-align: center;
+      padding: 2.5rem;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    .accent-text {
+      color: #b67d43;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Главный экран -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Сердце Байкала</h1>
+        <p class="subtitle">История бурятского народа через поколения</p>
+        <div>
+          <span class="badge"><i class="fas fa-feather-alt"></i> живой исторический тур</span>
+          <span class="badge"><i class="fas fa-water"></i> Саган-Заба</span>
+          <span class="badge"><i class="fas fa-mountain"></i> Меркитская крепость</span>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 1.2rem; max-width: 550px;">
+          Станьте не просто наблюдателем, а полноправным участником истории древних племён Прибайкалья — курыкан и меркитов.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h3>Экспедиция 5 дней</h3>
+        <div class="price">26 992 ₽ <small>/ чел.</small></div>
+        <p style="margin: 0.5rem 0;">группа до 30 человек</p>
+        <p><i class="fas fa-map-pin"></i> Байкал — Гусиноозерск — Улан-Удэ</p>
+        <a href="#" class="btn"><i class="fas fa-compass"></i> Забронировать место</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Суть тура -->
+    <section>
+      <h2 class="section-title">Концепция путешествия</h2>
+      <div class="grid-2">
+        <div class="info-card">
+          <i class="fas fa-scroll"></i>
+          <h3>Дневник путешественника</h3>
+          <p>Каждый участник получает уникальный буклет с картами, легендами и заданиями. Собирайте историю предков поэтапно, страница за страницей.</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-users"></i>
+          <h3>Живое участие</h3>
+          <p>Расшифровка петроглифов, изготовление амулетов, лепка бууз — вы не слушаете лекцию, вы проживаете культуру через практику.</p>
+        </div>
+      </div>
+      <div class="diary-preview">
+        <div class="diary-text">
+          <h3 style="font-size: 2rem; margin-bottom: 0.5rem;">📖 Дневник путешественника</h3>
+          <p>Образец страниц буклета (рис.1–2): ключевые точки, правила безопасности, исторические справки о курыканах и меркитах. На каждом этапе — новые факты и интерактивные вкладыши.</p>
+          <p><i class="fas fa-check-circle" style="color:#2e6b7a;"></i> Выдаётся гидом в начале каждого блока маршрута.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Для кого -->
+    <section style="background: #f0f5f8; border-radius: 60px; padding: 3rem 2rem;">
+      <h2 class="section-title">Для кого этот тур</h2>
+      <div class="grid-3">
+        <div class="info-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Молодёжь 16–30 лет</h3>
+          <p>Школьники, студенты, молодые специалисты — интерактивный формат удерживает внимание и дарит эмоции.</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-landmark"></i>
+          <h3>Любители истории</h3>
+          <p>Археология, этнография, древние монгольские и тюркские племена — глубокое погружение в прошлое.</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-globe"></i>
+          <h3>Семьи и группы</h3>
+          <p>Подходит для семей с подростками, образовательных организаций и иностранных гостей.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Программа по дням -->
+    <section>
+      <h2 class="section-title">Маршрут тура</h2>
+      <div class="timeline">
+        <!-- День 1-2 -->
+        <div class="day-block">
+          <div class="day-header">
+            <span>День 1–2</span>
+            <h3>«След Курыкан» · Прибайкалье</h3>
+          </div>
+          <p><strong>Утёс Саган-Заба (Белая скала) · Карстовые воронки · кафе «Юрта»</strong></p>
+          <ul class="feature-list">
+            <li><i class="fas fa-paint-brush"></i> <strong>Петроглифы:</strong> около 40 древних изображений возрастом до 4000 лет. Тотемные животные, шаманы, обряды.</li>
+            <li><i class="fas fa-search"></i> <strong>Мастер-класс:</strong> расшифровка символов — вы в роли археолога.</li>
+            <li><i class="fas fa-icicles"></i> Зимой: прозрачный лёд и ледяные гроты внутри утёса.</li>
+            <li><i class="fas fa-utensils"></i> <strong>Дегустация:</strong> блюда курыкан (конина, тигровые лилии) в кафе «Юрта».</li>
+            <li><i class="fas fa-moon"></i> Вечерний мастер-класс по изготовлению древних амулетов. Обсуждение дня с гидом.</li>
+            <li><i class="fas fa-ship"></i> Утро 2-го дня: переправа на катере через Байкал (1 час), живописные виды.</li>
+          </ul>
+          <div class="quote">
+            «Курыканы — один из загадочных народов, повлиявших на формирование населения региона.»
+          </div>
+        </div>
+
+        <!-- День 3-4 -->
+        <div class="day-block">
+          <div class="day-header">
+            <span>День 3–4</span>
+            <h3>«Воинственные Меркиты» · Гусиноозерск – Улан-Удэ</h3>
+          </div>
+          <p><strong>Меркитская крепость · Абрикосовая роща · останец «Табан хурган» · усадьба Тохто-Беки</strong></p>
+          <ul class="feature-list">
+            <li><i class="fas fa-fort-awesome"></i> <strong>Крепость меркитов:</strong> место, где скрывалось племя во время войны с Чингисханом. Легенда о похищении Бортэ.</li>
+            <li><i class="fas fa-tree"></i> <strong>Абрикосовая роща:</strong> по преданию, выросла на месте погибших воинов (доступна в мае).</li>
+            <li><i class="fas fa-hand-rock"></i> <strong>Табан хурган (пять пальцев):</strong> сакральный камень, дар Неба меркитам.</li>
+            <li><i class="fas fa-home"></i> Проживание в гостевом доме «Море Гусиное» с видом на озеро.</li>
+            <li><i class="fas fa-fire"></i> Мастер-класс по лепке бууз и вечер у костра с подведением итогов.</li>
+          </ul>
+        </div>
+
+        <!-- День 5 -->
+        <div class="day-block">
+          <div class="day-header">
+            <span>День 5</span>
+            <h3>Отдых и возвращение</h3>
+          </div>
+          <p>Утро на пляже Гусиного озера, свободное время для купания и фотографий. Трансфер до вокзала.</p>
+          <p style="font-style: italic;">Формат сочетает насыщенную программу с отдыхом, чтобы дорога домой была лёгкой.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Уникальность и преимущества -->
+    <section style="background: #ffffff; border-radius: 50px; padding: 3rem 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+      <h2 class="section-title">Почему этот тур особенный</h2>
+      <div class="grid-2">
+        <div>
+          <i class="fas fa-star" style="color: #d4a373; font-size: 2rem;"></i>
+          <h3>Полное погружение</h3>
+          <p>Вы не просто смотрите на петроглифы — вы их анализируете. Вы не пробуете еду — вы готовите её сами. История становится личным опытом.</p>
+        </div>
+        <div>
+          <i class="fas fa-balance-scale" style="color: #d4a373; font-size: 2rem;"></i>
+          <h3>Баланс науки и отдыха</h3>
+          <p>Образовательные блоки чередуются с пляжным отдыхом, вечерами у костра и свободным временем на Гусином озере.</p>
+        </div>
+        <div>
+          <i class="fas fa-gem" style="color: #d4a373; font-size: 2rem;"></i>
+          <h3>Эксклюзивная тематика</h3>
+          <p>Мало кто предлагает маршруты, посвящённые курыканам и меркитам. Это не стандартный Ольхон, а глубинная история Бурятии.</p>
+        </div>
+        <div>
+          <i class="fas fa-book-open" style="color: #d4a373; font-size: 2rem;"></i>
+          <h3>Дневник путешественника</h3>
+          <p>Ваш личный артефакт, который останется на память и поможет структурировать знания.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Стоимость и детали -->
+    <section>
+      <h2 class="section-title">Стоимость и условия</h2>
+      <div class="grid-2" style="align-items: center;">
+        <div class="info-card" style="background: #1e3b47; color: white;">
+          <h3 style="color: #f5d7b3;">Включено (на 1 чел.)</h3>
+          <ul class="feature-list" style="color: #e0eef5;">
+            <li><i class="fas fa-bed"></i> Проживание (Юрта + Море Гусиное) — 4 467 ₽</li>
+            <li><i class="fas fa-bus"></i> Трансфер, катер — 6 300 ₽</li>
+            <li><i class="fas fa-user-tie"></i> Гид и экскурсии — 667 ₽</li>
+            <li><i class="fas fa-palette"></i> Мастер-классы — 300 ₽</li>
+            <li><i class="fas fa-utensil-spoon"></i> Питание — 7 350 ₽</li>
+            <li><i class="fas fa-file-invoice"></i> Косвенные расходы, комиссия</li>
+          </ul>
+          <p style="margin-top: 1rem; font-weight: 600;">Себестоимость: 22 493 ₽</p>
+          <p style="font-size: 1.8rem; font-weight: 700; color: #ffd78b;">Цена: 26 992 ₽</p>
+        </div>
+        <div>
+          <h3>Конкурентные преимущества</h3>
+          <p><span class="accent-text">✓</span> Уникальное торговое предложение — древние коды Сибири.</p>
+          <p><span class="accent-text">✓</span> Сочетание культурно-познавательного, этнографического и природного туризма.</p>
+          <p><span class="accent-text">✓</span> Малоизвестные, но научно значимые объекты.</p>
+          <p style="margin-top: 1rem;"><i class="fas fa-calendar-alt"></i> Ближайшие даты: июнь – сентябрь, зимний ледовый сезон.</p>
+          <a href="#" class="btn" style="background: #1e4b5e; color: white; margin-top: 1rem;">Связаться с организатором</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 «Сердце Байкала» — историко-этнический тур по Республике Бурятия</p>
+    <p style="font-size: 0.9rem; opacity: 0.8;">Маршрут: Саган-Заба → Турка → Меркитская крепость → Гусиноозерск → Улан-Удэ</p>
+    <p style="margin-top: 0.8rem;"><i class="fas fa-phone-alt"></i> 8 (800) 100-20-30 &nbsp;&nbsp; <i class="fas fa-envelope"></i> baikalheart@tour.ru</p>
+  </footer>
+</body>
+</html>
